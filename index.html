@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Предсказание массы черной дыры</title>
+</head>
+<body>
+    <div class="container">
+        <h1>Предсказание массы черной дыры</h1>
+        <p>Введите массы двух космических объектов (в солнечных массах, M⊙) и узнайте массу черной дыры после их слияния!</p>
+        
+        <form method="POST">
+            <label for="mass_1">Масса первого объекта (M⊙):</label>
+            <input type="number" step="any" id="mass_1" name="mass_1" required>
+            <br>
+            <label for="mass_2">Масса второго объекта (M⊙):</label>
+            <input type="number" step="any" id="mass_2" name="mass_2" required>
+            <br>
+            <button type="submit">Предсказать</button>
+        </form>
+        
+        {% if error %}
+            <p class="error">{{ error }}</p>
+        {% endif %}
+        
+        {% if prediction %}
+            <h2>Результат</h2>
+            <p>Предсказанная конечная масса: <strong>{{ prediction }} M⊙</strong></p>
+            <p>{{ comment }}</p>
+        {% endif %}
+    </div>
+</body>
+</html>
